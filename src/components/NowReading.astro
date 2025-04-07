@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import ArrowUp from '../components/icons/ArrowUp.astro';
+import noLongerHumanPreview from '../assets/no-longer-human-preview.jpg';
+---
+
+<section >
+  <h2 class="title">Now Reading</h2>
+  <article aria-labelledby="book-title-1" class="flex gap-4">
+    <Image src={noLongerHumanPreview} alt="no longer human" width={80} height={120} class="rounded-md" />
+    <div class="text-xs">
+      <h3 class="font-serif">
+        <a href="https://www.google.co.id/books/edition/No_Longer_Human/9jhi2bY3GkAC?hl=en&gbpv=0" class="flex [&:hover_svg]:-translate-y-[2px] [&:hover_svg]:translate-x-[2px] transition-all [&_svg]:transition-all">
+          <span>No Longer Human</span> <ArrowUp />
+        </a>
+      </h3>
+      <p>Osamu Dazai</p>
+    </div>
+  </article>
+</section>

@@ -1,11 +1,47 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import { textVide } from 'text-vide';
+import Bulletin from '../components/Bulletin.astro';
+import Experiences from '../components/Experiences.astro';
+import NowReading from '../components/NowReading.astro';
+import { Stats } from '../components/WakatimeStats';
 import Layout from '../layouts/Layout.astro';
+import { str } from '../libs/str';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+export const prerender = false;
+
+const aboutMe = str.concat(
+  'Passionate programmer with expertise in Full-Stack Web Development.',
+  "I'm grounded in <i>C-style</i> programming languages and spend most of",
+  "the time writing <i>TypeScript</i>, but I'm not fond of interpreted and dynamic",
+  'type language. I prefer Functional paradigm over Object-Oriented Programming.',
+);
 ---
 
 <Layout>
-	<Welcome />
+  <header class="mb-16">
+    <h1 class="font-sans overflow-hidden">
+      <span>noveanre<span/>
+      <span class="text-3xl leading-0">.</span>
+    </h1>
+    <span class="font-serif italic">SEA</span>
+  </header>
+  <main class="space-y-12">
+    <section>
+      <h2 class="sr-only">About me</h2>
+      <p
+        class="paragraph"
+        set:html={textVide(aboutMe)}
+       />
+    </section>
+    <!-- Display Experiences -->
+    <Experiences />
+    <!-- Table of Projects, Post, etc. -->
+    <Bulletin /> 
+    <!-- Wakatime Stats -->
+    <section>
+     <Stats client:load /> 
+    </section> 
+    <!-- Now Reading -->
+    <NowReading />
+  </main> 
 </Layout>
