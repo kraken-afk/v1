@@ -4,9 +4,13 @@ import { WakatimeStatsSkeleton } from './skeletons/WakatimeStatsSkeleton';
 import { parseWakatimeStats } from '../libs/parseWakatimeStats';
 import clsx from 'clsx';
 
-export function WakatimeStats() {
+type WakatimeStatsProps = {
+  endpoint: string;
+}
+
+export function WakatimeStats({endpoint}: WakatimeStatsProps) {
   const stats = use(
-    fetch('http://localhost:4321/api/wakastats').then(
+    fetch(endpoint).then(
       (res) =>
         res.json() as Promise<
           NonNullable<ReturnType<typeof extractWakaTimeStats>>
@@ -50,11 +54,11 @@ export function WakatimeStats() {
   );
 }
 
-export function Stats() {
+export function Stats({endpoint}: {endpoint: string, 'client:load': boolean}) {
   return (
     <Suspense fallback={<WakatimeStatsSkeleton />}>
       <h2 className="title">This Week I Spent My Time On</h2>
-      <WakatimeStats />
+      <WakatimeStats endpoint={endpoint} />
     </Suspense>
   );
 }

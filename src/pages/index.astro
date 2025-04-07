@@ -39,7 +39,7 @@ const aboutMe = str.concat(
     <Bulletin /> 
     <!-- Wakatime Stats -->
     <section>
-     <Stats client:load /> 
+      <Stats client:load endpoint={`${import.meta.env.HOST}/api/wakastats`} /> 
     </section> 
     <!-- Now Reading -->
     <NowReading />
