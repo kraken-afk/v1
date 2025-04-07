@@ -6,9 +6,9 @@ import clsx from 'clsx';
 
 type WakatimeStatsProps = {
   endpoint: string;
-}
+};
 
-export function WakatimeStats({endpoint}: WakatimeStatsProps) {
+export function WakatimeStats({ endpoint }: WakatimeStatsProps) {
   const stats = use(
     fetch(endpoint).then(
       (res) =>
@@ -54,7 +54,9 @@ export function WakatimeStats({endpoint}: WakatimeStatsProps) {
   );
 }
 
-export function Stats({endpoint}: {endpoint: string, 'client:load': boolean}) {
+export function Stats({
+  endpoint,
+}: { endpoint: string; 'client:load': boolean }) {
   return (
     <Suspense fallback={<WakatimeStatsSkeleton />}>
       <h2 className="title">This Week I Spent My Time On</h2>

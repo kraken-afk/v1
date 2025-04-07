@@ -7,11 +7,12 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": []
+		"ignore": ["dist", "node_modules", ".astro"]
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"ignore": ["dist", "node_modules", ".astro"]
 	},
 	"organizeImports": {
 		"enabled": true
@@ -20,7 +21,8 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true
-		}
+		},
+		"ignore": ["dist", "node_modules", ".astro"]
 	},
 	"javascript": {
 		"formatter": {
