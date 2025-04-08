@@ -1,13 +1,14 @@
 ---
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'public, max-age=43200');
+
 import { textVide } from 'text-vide';
 import Bulletin from '../components/Bulletin.astro';
 import Experiences from '../components/Experiences.astro';
 import NowReading from '../components/NowReading.astro';
-import { Stats } from '../components/WakatimeStats';
+import WakatimeStats from '../components/WakatimeStats.astro';
 import Layout from '../layouts/Layout.astro';
 import { str } from '../libs/str';
-
-export const prerender = false;
 
 const aboutMe = str.concat(
   'Passionate programmer with expertise in Full-Stack Web Development.',
@@ -38,9 +39,7 @@ const aboutMe = str.concat(
     <!-- Table of Projects, Post, etc. -->
     <Bulletin /> 
     <!-- Wakatime Stats -->
-    <section>
-      <Stats client:load endpoint={`${import.meta.env.HOST}/api/wakastats`} /> 
-    </section> 
+    <WakatimeStats /> 
     <!-- Now Reading -->
     <NowReading />
   </main> 
