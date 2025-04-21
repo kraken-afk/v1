@@ -1,5 +1,11 @@
 ---
 import ArrowUp from '../components/icons/ArrowUp.astro';
+
+const projects = {
+  minigrep_go: 'https://github.com/kraken-afk/minigrep_go',
+  noto: 'https://github.com/kraken-afk/noto',
+  others: 'https://github.com/kraken-afk?tab=repositories',
+};
 ---
 
 <section>
@@ -11,22 +17,14 @@ import ArrowUp from '../components/icons/ArrowUp.astro';
           </tr>
         </thead>
         <tbody class="[&_td]:text-sm text-balance [&_td]:leading-8 [&_td>a]:flex [&_td>a]:items-center [&_td>a]:space-x-2 [&_td_svg]:transition-all [&_td:hover_svg]:-translate-y-[2px] [&_td:hover_svg]:translate-x-[2px]">
+        {Object.entries(projects).map(([k, v], i) => (
           <tr>
             <td>
-              <a href="https://github.com/kraken-afk/minigrep_go" target="_blank">minigrep_go <ArrowUp /></a>
+              <a href={v} target="_blank">{k} <ArrowUp /></a>
             </td>
-            <td class="rowspan-3 font-serif">none.</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://github.com/kraken-afk/minigrep" target="_blank">minigrep_rust <ArrowUp /></a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://github.com/kraken-afk?tab=repositories" target="_blank">others. <ArrowUp /></a>
-            </td>
-          </tr>
+            {i === 0 && <td class="rowspan-3 font-serif">none.</td> }
+          </tr> 
+        ))}
         </tbody>
       </table>
     </section>
