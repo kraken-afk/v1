@@ -1,28 +1,66 @@
 ---
 import { textVide } from 'text-vide';
+
+type Experiences = {
+  company: {
+    name: string;
+    url: string;
+  };
+  role: string;
+  date: string;
+  location: string;
+  description: string[];
+}[];
+
+const experiences: Experiences = [
+  {
+    company: {
+      name: 'feedloop.ai',
+      url: 'https://feedloop.ai/',
+    },
+    location: 'Remote',
+    role: 'Full Stack Engineer',
+    date: 'Apr 2025 - Current',
+    description: [],
+  },
+  {
+    company: {
+      name: 'Devscale Indonesia',
+      url: 'https://www.devscale.id/',
+    },
+    location: 'Remote',
+    role: 'Full Stack Developer Internship',
+    date: 'Sep 2024 - Dec 2024',
+    description: [
+      'Contributed to 60–70% of the platform redevelopment, handling both front-end and back-end tasks using ElysiaJS, RemixJS, and TypeScript. Designed and implemented a back-end system with a layered architecture and ensured strong type safety across the codebase. Developed core features, including authentication, UI components, JavaScript code evaluation for coding challenges, UI animations, and more.',
+      'Fixed bugs and implemented minor features on the legacy platform to maintain functionality and improve user experience',
+    ],
+  },
+];
 ---
 
 <section>
   <h2 class="title">Experiences</h2>
-  <ul class="*:block">
+  <ul class="*:block space-y-6">
+    {experiences.map(exp => (
     <li>
       <div class="flex items-center justify-between font-serif text-sm">
         <span>
-          <a href="https://www.devscale.id/" class="underline">Devscale Indonesia</a> | Remote
+          <a href={exp.company.url} class="underline">{exp.company.name}</a> | {exp.location}
         </span>
-        <span class="text-xs">Sep 2024 - Dec 2024</span>
+        <span class="text-xs">{exp.date}</span>
       </div> 
       <div class="space-y-2">
-        <h3 class="font-serif text-sm">Full-Stack Developer Internship</h3>
-        <ul class="list-disc space-y-2 text-balance pl-4">
-          <li>
-            <p class="paragraph" set:html={textVide("Contributed to 60–70% of the platform redevelopment, handling both front-end and back-end tasks using ElysiaJS, RemixJS, and TypeScript. Designed and implemented a back-end system with a layered architecture and ensured strong type safety across the codebase. Developed core features, including authentication, UI components, JavaScript code evaluation for coding challenges, UI animations, and more.")} />
+        <h3 class="font-serif text-sm">{exp.role}</h3>
+        <ul class="space-y-2 text-balance">
+          {exp.description.map(desc => (
+           <li>
+            <p class="paragraph" set:html={textVide(desc)} />
           </li>
-          <li>
-            <p class="paragraph" set:html={textVide("Fixed bugs and implemented minor features on the legacy platform to maintain functionality and improve user experience")} />
-          </li>
+          ))}
         </ul> 
       </div>
-    </li>
+    </li>  
+    ))}
   </ul> 
 </section>
