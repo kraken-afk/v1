@@ -6,7 +6,12 @@ import { parseWakatimeStats } from '../libs/parseWakatimeStats';
 const endpoint =
   'https://raw.githubusercontent.com/kraken-afk/kraken-afk/refs/heads/main/README.md';
 
-const response = await fetch(endpoint);
+const response = await fetch(endpoint, {
+  headers: {
+    'Cache-Control': 'max-age=14400', // 4 hours in seconds
+  },
+  cache: 'force-cache',
+});
 
 if (response.status !== 200) {
   throw Error('Something went error');
