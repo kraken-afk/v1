@@ -1,21 +1,22 @@
 ---
 export const prerender = false;
+
 Astro.response.headers.set('Cache-Control', 'public, max-age=43200');
 
+import Bulletin from '@components/Bulletin.astro';
+import Experiences from '@components/Experiences.astro';
+import NowReading from '@components/NowReading.astro';
+import WakatimeStats from '@components/WakatimeStats.astro';
+import Layout from '@layouts/Layout.astro';
+import dedent from 'dedent';
 import { textVide } from 'text-vide';
-import Bulletin from '../components/Bulletin.astro';
-import Experiences from '../components/Experiences.astro';
-import NowReading from '../components/NowReading.astro';
-import WakatimeStats from '../components/WakatimeStats.astro';
-import Layout from '../layouts/Layout.astro';
-import { str } from '../libs/str';
 
-const aboutMe = str.concat(
-  'Passionate programmer with expertise in Full-Stack Web Development.',
-  "I'm grounded in <i>C-style</i> programming languages and spend most of",
-  "the time writing <i>TypeScript</i>, but I'm not fond of interpreted and dynamic",
-  'type language. I prefer Functional paradigm over Object-Oriented Programming.',
-);
+const aboutMe = dedent`
+  Passionate Programmer with expertise in Full-Stack Web Development.
+  I'm grounded in <i>C-style</i> programming languages and spend most of
+  the time writing <i>TypeScript</i>, but I'm not fond of interpreted and dynamic
+  type language. I prefer Functional paradigm over Object-Oriented Programming.
+`;
 ---
 
 <Layout>

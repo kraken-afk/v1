@@ -1,36 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Open Sans", sans-serif;
-  --font-serif: "Newsreader", serif;
-  --font-mono: "JetBrains Mono", monospace;
+	--font-sans: "Open Sans", sans-serif;
+	--font-serif: "Newsreader", serif;
+	--font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
-  *::selection {
-    background-color: #3f7d58;
-    color: #ddeb9d;
-  }
+	:root {
+		--selection: #a3b18a;
+	}
 
-  b::selection {
-    color: #a0c878;
-  }
+	*::selection {
+		background-color: #344532;
+		color: var(--selection);
+	}
 
-  body {
-    @apply antialiased;
-  }
+	b::selection {
+		color: var(--selection);
+	}
+
+	body {
+		@apply antialiased;
+	}
 }
 
 @layer utilities {
-  .debug {
-    @apply border border-red-500;
-  }
+	.debug {
+		@apply border border-red-500;
+	}
 
-  .title {
-    @apply font-serif text-slate-800 mb-2;
-  }
+	.title {
+		@apply font-serif text-zinc-900 mb-2 font-medium;
+	}
 
-  .paragraph {
-    @apply font-sans text-sm [&>b]:font-normal text-neutral-700 [&>b]:text-black [&>i]:font-serif;
-  }
+	.paragraph {
+		@apply font-sans text-sm [&>b]:font-medium text-black [&>b]:text-black [&>i]:font-serif;
+	}
 }

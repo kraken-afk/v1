@@ -1,7 +1,7 @@
 ---
+import { extractWakaTimeStats } from '@libs/extractWakaTimeStats';
+import { parseWakatimeStats } from '@libs/parseWakatimeStats';
 import clsx from 'clsx';
-import { extractWakaTimeStats } from '../libs/extractWakaTimeStats';
-import { parseWakatimeStats } from '../libs/parseWakatimeStats';
 
 const endpoint =
   'https://raw.githubusercontent.com/kraken-afk/kraken-afk/refs/heads/main/README.md';
@@ -43,7 +43,7 @@ const prolang = parseWakatimeStats(stats.prolang).reduce<{
 ---
 <section>
   <h2 class="title">This Week I Spent My Time On</h2>
-  <div class="text-sm font-serif">
+  <div class="text-base font-serif">
     <div class="flex items-center justify-between">
       {Object.entries(prolang).map(([key, stats]) => (
         <div  class="flex flex-col">

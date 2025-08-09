@@ -19,7 +19,7 @@ const experiences: Experiences = [
       url: 'https://feedloop.ai/',
     },
     location: 'Remote',
-    role: 'Full Stack Engineer',
+    role: 'Software Engineer',
     date: 'Apr 2025 - Current',
     description: [],
   },
@@ -44,15 +44,15 @@ const experiences: Experiences = [
   <ul class="*:block space-y-6">
     {experiences.map(exp => (
     <li>
-      <div class="flex items-center justify-between font-serif text-sm">
+      <div class="flex items-center justify-between font-serif text-base">
         <span>
           <a href={exp.company.url} class="underline">{exp.company.name}</a> | {exp.location}
         </span>
-        <span class="text-xs">{exp.date}</span>
+        <span class="text-sm">{exp.date}</span>
       </div> 
       <div class="space-y-2">
-        <h3 class="font-serif text-sm">{exp.role}</h3>
-        <ul class="space-y-2 text-balance">
+        <h3 class="font-serif text-base">{exp.role}</h3>
+        <ul class="space-y-2 text-wrap">
           {exp.description.map(desc => (
            <li>
             <p class="paragraph" set:html={textVide(desc)} />

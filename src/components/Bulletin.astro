@@ -1,5 +1,5 @@
 ---
-import ArrowUp from '../components/icons/ArrowUp.astro';
+import ArrowUp from '@components/icons/ArrowUp.astro';
 
 const projects = {
   minigrep_go: 'https://github.com/kraken-afk/minigrep_go',
@@ -9,14 +9,14 @@ const projects = {
 ---
 
 <section>
-  <table class="[&_th]:font-serif [&_th]:font-normal [&_th]:text-left [&_th]:text-slate-900  [&_th,td]:pr-4">
+  <table class="[&_th]:font-serif [&_th]:font-normal [&_th]:text-left [&_th,td]:pr-4">
     <thead>
           <tr>
             <th>Projects</th>
             <th>Posts</th>
           </tr>
         </thead>
-        <tbody class="[&_td]:text-sm text-balance [&_td]:leading-8 [&_td>a]:flex [&_td>a]:items-center [&_td>a]:space-x-2 [&_td_svg]:transition-all [&_td:hover_svg]:-translate-y-[2px] [&_td:hover_svg]:translate-x-[2px]">
+        <tbody class="[&_td]:text-base text-balance [&_td]:leading-8 [&_td>a]:flex [&_td>a]:items-center [&_td>a]:space-x-2 [&_td_svg]:transition-all [&_td:hover_svg]:-translate-y-[2px] [&_td:hover_svg]:translate-x-[2px]">
         {Object.entries(projects).map(([k, v], i) => (
           <tr>
             <td>
