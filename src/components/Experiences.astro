@@ -31,17 +31,18 @@ const experiences: Experiences = [
     location: 'Remote',
     role: 'Full Stack Developer Internship',
     date: 'Sep 2024 - Dec 2024',
-    description: [
-      'Contributed to 60–70% of the platform redevelopment, handling both front-end and back-end tasks using ElysiaJS, RemixJS, and TypeScript. Designed and implemented a back-end system with a layered architecture and ensured strong type safety across the codebase. Developed core features, including authentication, UI components, JavaScript code evaluation for coding challenges, UI animations, and more.',
-      'Fixed bugs and implemented minor features on the legacy platform to maintain functionality and improve user experience',
-    ],
+    // description: [
+    //   'Contributed to 60–70% of the platform redevelopment, handling both front-end and back-end tasks using ElysiaJS, RemixJS, and TypeScript. Designed and implemented a back-end system with a layered architecture and ensured strong type safety across the codebase. Developed core features, including authentication, UI components, JavaScript code evaluation for coding challenges, UI animations, and more.',
+    //   'Fixed bugs and implemented minor features on the legacy platform to maintain functionality and improve user experience',
+    // ],
+    description: [],
   },
 ];
 ---
 
 <section>
   <h2 class="title">Experiences</h2>
-  <ul class="*:block space-y-6">
+  <ul class="*:block space-y-2">
     {experiences.map(exp => (
     <li>
       <div class="flex items-center justify-between font-serif text-base">
